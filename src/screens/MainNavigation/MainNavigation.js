@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../Login/LoginScreen";
 import SplashScreen from "../Splash/SplashScreen";
 import QrCodeScreen from "../QrCode/QrCodeScreen";
+import ModeSelector from "../Mode/ModeSelector";
 
 const {Screen, Navigator} = createNativeStackNavigator();
 
@@ -14,6 +15,11 @@ export function MainNavigator(){
            <Screen
               name="SplashScreen"
               component={SplashScreen} 
+              options={{headerShown:false}}      
+            />
+            <Screen
+              name="ModeSelector"
+              component={ModeSelector} 
               options={{headerShown:false}}      
             />
             <Screen

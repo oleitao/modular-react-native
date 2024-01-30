@@ -9,7 +9,12 @@ export function Navigator() {
         name="SplashScreen"
         component={SplashScreen}
         options={{ headerShown: false }} />
-         <Screen
+      <Screen
+        name="QrCodeScreen"
+        component={QrCodeScreen} 
+        options={{headerShown:false}}      
+      />
+      <Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{ headerShown: false }} />

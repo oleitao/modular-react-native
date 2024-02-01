@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginScreen from '../Login/LoginScreen';
+import LoginScreen from '../LoginScreen/LoginScreen';
 import SplashScreen from '../Splash/SplashScreen';
 
 export function Navigator() {

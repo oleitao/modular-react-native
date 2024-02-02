@@ -3,6 +3,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
+  Text,
+  Image,
+  Dimensions,
 } from "react-native";
 import { MultiTouchView } from 'expo-multi-touch';
 import ViewShot from "react-native-view-shot";
@@ -123,12 +126,51 @@ export default class Move extends Component {
     },
   };
 
+  _renderUri = () => () => {
+    const[uri, setUri] = useState("");
+    return {uri}
+  }
+
+  _renderViewShot = () => () => {
+    return useRef(null);
+  }
+ 
   render() {
     const { touches } = this.state;
+    const viewShot = this._renderViewShot();
+    const uri = this._renderUri();
+
+    const captureScreen = () => {
+      viewShot.current.capture().then((uri) => {
+          setUri(uri);
+      });
+    };
+
     return (
       <View style={{ flex: 1, backgroundColor: 'orange' }}>
         <MultiTouchView style={{ flex: 1 }} {...this.touchProps}>
           <View style={styles.container}>            
+
+          <ViewShot ref={this.viewShot} style={styles.viewShot}>
+            <View style={{ width: 200, height: 200, backgroundColor: "red" }} />
+          </ViewShot>
+
+          <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={captureScreen} style={styles.btn}>
+              <Text style={styles.btnTxt}>CAPTURE</Text>
+          </TouchableOpacity>
+          </View>
+
+          {uri ? (
+          <View style={styles.previewContainer}>
+              <Text>Preview</Text>
+              <Image
+              source={{ uri: uri }}
+              style={styles.previewImage}
+              resizeMode="contain"
+              />
+          </View>
+          ) : null}
 
             {Object.values(touches).map((item, index) => {
               if (!item) {
@@ -174,6 +216,7 @@ export default class Move extends Component {
 }
 
 const TOUCH_SIZE = 56;
+const SCREEN_WIDTH = Dimensions.get("screen").width;
 
 const styles = StyleSheet.create({
   container: {
@@ -188,4 +231,29 @@ const styles = StyleSheet.create({
     width: TOUCH_SIZE,
     borderRadius: TOUCH_SIZE / 2,
   },
+  viewShot: {
+    width: SCREEN_WIDTH,
+    height: SCREEN_WIDTH,
+  },
+  buttonContainer: {
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  btn: {
+    padding: 8,
+  },
+  btnTxt: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  previewContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    backgroundColor: "#000",
+  },
+  previewImage: { width: 200, height: 200, backgroundColor: "#fff" },
 });

@@ -1,5 +1,5 @@
 {
-  "name": "modular-react-native",
+  "name": "react-web",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -29,6 +29,7 @@
     "react-native-animated-splash-screen": "^2.0.5",
     "react-native-image-picker": "^5.6.0",
     "react-native-paper": "^5.9.1",
+    "react-native-qrcode-svg": "^6.2.0",
     "react-native-safe-area-context": "^4.6.4",
     "react-native-screens": "^3.22.1",
     "react-native-vector-icons": "^9.2.0",

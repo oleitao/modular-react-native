@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "../Login/LoginScreen";
+import LoginScreen from "../LoginScreen/LoginScreen";
 import SplashScreen from "../Splash/SplashScreen";
-import QrCodeScreen from "../QrCode/QrCodeScreen";
+import ShotViewScreen from "../ShotViewScreen/ShotViewScreen";
 
 const {Screen, Navigator} = createNativeStackNavigator();
 
@@ -16,14 +16,14 @@ export function MainNavigator(){
               component={SplashScreen} 
               options={{headerShown:false}}      
             />
-            <Screen
-              name="QrCodeScreen"
-              component={QrCodeScreen} 
-              options={{headerShown:false}}      
-            />
            <Screen
               name="LoginScreen"
               component={LoginScreen} 
+              options={{headerShown:false}}      
+            />
+           <Screen
+              name="ShotViewScreen"
+              component={ShotViewScreen} 
               options={{headerShown:false}}      
             />
         </Navigator>

@@ -24,6 +24,8 @@ const JSONSchema = {
   }
 };
 
+const viewShot = useRef(null);
+
 let realm = new Realm({schema: [JSONSchema]});
 
 export default class Move extends Component {
@@ -84,6 +86,11 @@ export default class Move extends Component {
       const { identifier, deltaX, deltaY, isTap } = event;
       console.log('onTouchesBegan');
 
+      viewShot.current.capture().then((uri) => {
+        console.log("IMAGE-SHOT");
+        setUri(uri);
+      });
+
       realm.write(() => {
         realm.create('Move', {
           index:0,
@@ -126,51 +133,24 @@ export default class Move extends Component {
     },
   };
 
-  _renderUri = () => () => {
+  _renderUri = () => () => {    
     const[uri, setUri] = useState("");
-    return {uri}
+return {uri}
   }
 
-  _renderViewShot = () => () => {
-    return useRef(null);
-  }
- 
+
   render() {
     const { touches } = this.state;
-    const viewShot = this._renderViewShot();
-    const uri = this._renderUri();
-
-    const captureScreen = () => {
-      viewShot.current.capture().then((uri) => {
-          setUri(uri);
-      });
-    };
 
     return (
       <View style={{ flex: 1, backgroundColor: 'orange' }}>
         <MultiTouchView style={{ flex: 1 }} {...this.touchProps}>
           <View style={styles.container}>            
 
-          <ViewShot ref={this.viewShot} style={styles.viewShot}>
+          <ViewShot ref={viewShot} style={styles.viewShot}>
             <View style={{ width: 200, height: 200, backgroundColor: "red" }} />
           </ViewShot>
 
-          <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={captureScreen} style={styles.btn}>
-              <Text style={styles.btnTxt}>CAPTURE</Text>
-          </TouchableOpacity>
-          </View>
-
-          {uri ? (
-          <View style={styles.previewContainer}>
-              <Text>Preview</Text>
-              <Image
-              source={{ uri: uri }}
-              style={styles.previewImage}
-              resizeMode="contain"
-              />
-          </View>
-          ) : null}
 
             {Object.values(touches).map((item, index) => {
               if (!item) {
@@ -189,24 +169,6 @@ export default class Move extends Component {
 
               console.log(index, item.locationX, item.locationY);
 
-              return (
-                <View
-                  key={index}
-                  style={[
-                    styles.touch,
-                    {
-                      transform: [
-                        { translateX: -TOUCH_SIZE / 2 },
-                        { translateY: -TOUCH_SIZE / 2 },
-                        { scale: 1 + (item.force || 0) * 2 },
-                      ],
-                      backgroundColor: colors[index % colors.length],
-                      top: item.pageY,
-                      left: item.pageX,
-                    },
-                  ]}
-                />
-              );
             })}
           </View>
         </MultiTouchView>
@@ -235,25 +197,4 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
   },
-  buttonContainer: {
-    alignSelf: "stretch",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10,
-  },
-  btn: {
-    padding: 8,
-  },
-  btnTxt: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  previewContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10,
-    backgroundColor: "#000",
-  },
-  previewImage: { width: 200, height: 200, backgroundColor: "#fff" },
 });

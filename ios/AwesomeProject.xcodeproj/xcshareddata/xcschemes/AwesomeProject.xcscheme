@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "react-web.app"
-               BlueprintName = "react-web"
-               ReferencedContainer = "container:react-web.xcodeproj">
+               BuildableName = "modular-react-native.app"
+               BlueprintName = "modular-react-native"
+               ReferencedContainer = "container:modular-react-native.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "AwesomeProjectTests.xctest"
                BlueprintName = "AwesomeProjectTests"
-               ReferencedContainer = "container:react-web.xcodeproj">
+               ReferencedContainer = "container:modular-react-native.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react-web.app"
-            BlueprintName = "react-web"
-            ReferencedContainer = "container:react-web.xcodeproj">
+            BuildableName = "modular-react-native.app"
+            BlueprintName = "modular-react-native"
+            ReferencedContainer = "container:modular-react-native.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react-web.app"
-            BlueprintName = "react-web"
-            ReferencedContainer = "container:react-web.xcodeproj">
+            BuildableName = "modular-react-native.app"
+            BlueprintName = "modular-react-native"
+            ReferencedContainer = "container:modular-react-native.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

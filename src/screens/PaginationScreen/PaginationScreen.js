@@ -33,7 +33,7 @@ const App = () => {
                 color: 'black',
               }}
             >
-              Animated Pagination Dots
+              Pagination Slider
         </Text>
 
         <View style={styles.container}>

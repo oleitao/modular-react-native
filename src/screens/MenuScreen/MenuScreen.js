@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
-import { Button } from 'react-native-elements';
+import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const MenuScreen = () => {
@@ -10,13 +9,16 @@ const MenuScreen = () => {
         <View style={styles.container}>
             <View style={styles.listContainer}>
                 <Text style={styles.titleStyle}>Select Features</Text>
-                
-                    <Button title="QR Code" onPress={() => navigation.navigate('QrCodeScreen')}
-                    />
-                    <Button title="Pagination" onPress={() => navigation.navigate('PaginationScreen')}
-                    />
-                    <Button title="Multi-Touch" onPress={() => navigation.navigate('ShotViewScreen')}
-                    />
+
+                <Pressable style={styles.button} onPress={() => navigation.navigate('QrCodeScreen')}>
+                  <Text style={styles.text}>QR Code</Text>
+                </Pressable>
+                <Pressable style={styles.button} onPress={() => navigation.navigate('PaginationScreen')}>
+                  <Text style={styles.text}>Pagination</Text>
+                </Pressable>
+                <Pressable style={styles.button} onPress={() => navigation.navigate('ShotViewScreen')}>
+                  <Text style={styles.text}>Multi-Touch</Text>
+                </Pressable>
                 
             </View>
         </View>
@@ -51,5 +53,23 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
+    },
+
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 12,
+      paddingHorizontal: 32,
+      borderRadius: 4,
+      margin: 5,
+      elevation: 3,
+      backgroundColor: 'black',
+    },
+    text: {
+      fontSize: 16,
+      lineHeight: 21,
+      fontWeight: 'bold',
+      letterSpacing: 0.25,
+      color: 'white',
     },
   });

@@ -5,6 +5,8 @@ import ShotViewScreen from "../ShotViewScreen/ShotViewScreen";
 import MenuScreen from "../MenuScreen/MenuScreen";
 import QrCodeScreen from "../QrCodeScreen/QrCodeScreen";
 import PaginationScreen from "../PaginationScreen/PaginationScreen";
+import UserScreen from "../ApiScreen/UserScreen";
+
 
 export function Navigator() {
   return (
@@ -36,6 +38,11 @@ export function Navigator() {
       <Screen
         name="PaginationScreen"
         component={PaginationScreen} 
+        options={{headerShown:false}}      
+      />
+      <Screen
+        name="UserScreen"
+        component={UserScreen} 
         options={{headerShown:false}}      
       />
     </Navigator>

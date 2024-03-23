@@ -17,7 +17,8 @@ const MenuScreen = () => {
                     />
                     <Button title="Multi-Touch" onPress={() => navigation.navigate('ShotViewScreen')}
                     />
-                
+                    <Button title="REST" onPress={() => navigation.navigate('UserScreen')}
+                    />                
             </View>
         </View>
     );

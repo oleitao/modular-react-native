@@ -23,6 +23,7 @@
     "apsl-react-native-button": "^3.1.1",
     "deprecated-react-native-prop-types": "^2.3.0",
     "expo-multi-touch": "^0.0.0",
+    "moment": "^2.30.1",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-native": "0.73.1",

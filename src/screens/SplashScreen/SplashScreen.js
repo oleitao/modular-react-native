@@ -108,10 +108,9 @@ const App = ({ status, type }) => {
             <Section title={"You are connected by " + connectionType}>
             </Section>
           
-            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-                <Text style={{ color: "#fdfdfd", fontSize: 30 }}>Hello</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('MenuScreen')}>
+                <Text style={{ color: "#fdfdfd", fontSize: 30 }}>Click Here</Text>
             </TouchableOpacity>
-
           </View>
         </AnimatedSplash>
       </>

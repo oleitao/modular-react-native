@@ -7,28 +7,39 @@ This project aims to implement different types of components react native, in or
 <h2>Run server</h2>
 ```npm start```
 
+
 • Menu
+
 On the menu screen you can navigate through the different features and access them respectively.
+
 <img src="https://github.com/oleitao/modular-react-native/blob/main/src/screens/Assets/png/menu.png">
 
 
 • Internet Connection
+
 On the following screen it is possible to check whether the device has access to the internet, which can be fixed or mobile (LTE). This screen allows you to access the Rest API interface.
+
 <img src="https://github.com/oleitao/modular-react-native/blob/main/src/screens/Assets/png/check-internet-connection.png">
 
 
 • Pagination slider
+
 The paging screen, as the name suggests, consists of a slide of pages that are easy to navigate.
+
 <img src="https://github.com/oleitao/modular-react-native/blob/main/src/screens/Assets/png/pagination-slider.png">
 
 
 • QR Core Generation 
+
 Code generation is based on obtaining the IMEI (unique on each device) which is used in the code generation process.
+
 <img src="https://github.com/oleitao/modular-react-native/blob/main/src/screens/Assets/png/qr-code-generation.png">
 
 
 • QR Core
+
 The QR Code mentioned above after its generation.
+
 <img src="https://github.com/oleitao/modular-react-native/blob/main/src/screens/Assets/png/qr-code.png">
 
 
